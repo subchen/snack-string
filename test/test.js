@@ -60,6 +60,7 @@ describe('String', function() {
             equal(startsWith('', '')         , true);
             equal(startsWith('abc', 'a')     , true);
             equal(startsWith('abc', 'c')     , false);
+            equal(startsWith('abc', '')      , true);
         });
     });
 
@@ -72,6 +73,7 @@ describe('String', function() {
             equal(endsWith('', '')         , true);
             equal(endsWith('abc', 'a')     , false);
             equal(endsWith('abc', 'c')     , true);
+            equal(endsWith('abc', '')      , true);
         });
     });
 
