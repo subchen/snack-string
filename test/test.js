@@ -3,7 +3,7 @@ var string = require('../');
 
 describe('String', function() {
 
-    var equal = assert.equal;
+    var equal = assert.strictEqual;
 
     describe('#toString()', function() {
         it('toString', function() {
