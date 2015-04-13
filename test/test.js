@@ -6,7 +6,7 @@ describe('String', function() {
     var equal = assert.strictEqual;
 
     describe('#toString()', function() {
-        it('toString', function() {
+        it('Returns a string representation of the object', function() {
             var toString = string.toString;
             equal(toString(undefined) , '');
             equal(toString(null)      , '');
@@ -20,7 +20,7 @@ describe('String', function() {
     });
 
     describe('#hashCode()', function() {
-        it('hashCode', function() {
+        it('Returns a hash code for this string', function() {
             var hashCode = string.hashCode;
             equal(hashCode(undefined) , 0);
             equal(hashCode(null)      , 0);
@@ -30,7 +30,7 @@ describe('String', function() {
     });
 
     describe('#isEmpty()', function() {
-        it('isEmpty', function() {
+        it('Checks if a String is empty or null', function() {
             var isEmpty = string.isEmpty;
             equal(isEmpty(undefined) , true);
             equal(isEmpty(null)      , true);
@@ -41,7 +41,7 @@ describe('String', function() {
     });
 
     describe('#isBlank()', function() {
-        it('isBlank', function() {
+        it('Checks if a String is whitespace, empty or null', function() {
             var isBlank = string.isBlank;
             equal(isBlank(undefined) , true);
             equal(isBlank(null)      , true);
@@ -52,7 +52,7 @@ describe('String', function() {
     });
 
     describe('#startsWith()', function() {
-        it('startsWith', function() {
+        it('Check if a String starts with a specified prefix.', function() {
             var startsWith = string.startsWith;
             equal(startsWith(undefined, '*') , false);
             equal(startsWith(null, '*')      , false);
@@ -64,7 +64,7 @@ describe('String', function() {
     });
 
     describe('#endsWith()', function() {
-        it('endsWith', function() {
+        it('Check if a String ends with a specified suffix.', function() {
             var endsWith = string.endsWith;
             equal(endsWith(undefined, '*') , false);
             equal(endsWith(null, '*')      , false);
