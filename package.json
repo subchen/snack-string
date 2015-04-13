@@ -1,0 +1,41 @@
+{
+  "name": "snack-string",
+  "version": "1.0.0",
+  "description": "Generic string functional library for javascript/node.js",
+  "author": {
+    "name": "Guoqiang Chen",
+    "email": "subchen@gmail.com",
+    "url": "https://github.com/subchen"
+  },
+  "contributors": [],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subchen/snack-string.git"
+  },
+  "bugs": {
+    "url": "https://github.com/subchen/snack-string/issues"
+  },
+  "homepage": "http://subchen.github.io/snack-string",
+  "keywords": [
+    "snack",
+    "string",
+    "util"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "js-beautify": "^1.5.5"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "main": "index.js",
+  "directories": {
+    "lib": "./lib"
+  },
+  "scripts": {
+    "test": "mocha"
+  }
+}
