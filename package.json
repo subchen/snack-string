@@ -22,11 +22,11 @@
     "string",
     "util"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "js-beautify": "^1.5.5"
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-jshint": "^0.11.1",
+    "grunt-jsbeautifier": "^0.2.10"
   },
   "engines": {
     "node": ">= 0.10.0"
