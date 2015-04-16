@@ -22,8 +22,10 @@
     "string",
     "util"
   ],
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
+    "mocha": "^2.2.4"
     "grunt-cli": "^0.1.13",
     "grunt-contrib-jshint": "^0.11.1",
     "grunt-jsbeautifier": "^0.2.10"
