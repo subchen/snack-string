@@ -135,7 +135,7 @@ describe('String', function() {
             equal(between('abcba', 'a', 'c') , 'b');
         });
     });
-    
+
     describe('#pad()', function() {
         it('Pads string on the left and right sides if it is shorter than length', function() {
             var pad = string.pad;
@@ -166,7 +166,7 @@ describe('String', function() {
             equal(padRight('abcde', 3)   , 'abcde');
         });
     });
-    
+
     describe('#repeat()', function() {
         it('Repeats the given string n times', function() {
             var repeat = string.repeat;
@@ -184,6 +184,60 @@ describe('String', function() {
             equal(removeChars('abcba', '')  , 'abcba');
             equal(removeChars('abcba', 'a') , 'bcb');
             equal(removeChars('abcba', 'd') , 'abcba');
+            equal(removeChars('abcba', 'ab'), 'c');
         });
     });
+
+    describe('#capitalize()', function() {
+        it('Capitalizes the first character of string', function() {
+            var capitalize = string.capitalize;
+            equal(capitalize(null)     , '');
+            equal(capitalize('abcba')  , 'Abcba');
+            equal(capitalize('ab ba')  , 'Ab ba');
+            equal(capitalize('ABCBA')  , 'ABCBA');
+        });
+    });
+    describe('#decapitalize()', function() {
+        it('Decapitalizes the first character of string', function() {
+            var decapitalize = string.decapitalize;
+            equal(decapitalize(null)     , '');
+            equal(decapitalize('Abcba')  , 'abcba');
+            equal(decapitalize('ab ba')  , 'ab ba');
+            equal(decapitalize('ABCBA')  , 'aBCBA');
+        });
+    });
+    describe('#camelize()', function() {
+        it('Converts string to camel case', function() {
+            var camelize = string.camelize;
+            equal(camelize(null)           , '');
+            equal(camelize('abcba')        , 'abcba');
+            equal(camelize('ABCBA')        , 'abcba');
+            equal(camelize('ab ba')        , 'abBa');
+            equal(camelize('ab ba', true)  , 'AbBa');
+        });
+    });
+    describe('#dasherize()', function() {
+        it('Converts string to dasherize case', function() {
+            var dasherize = string.dasherize;
+            equal(dasherize(null)           , '');
+            equal(dasherize('Abcba')        , 'abcba');
+            equal(dasherize('ABCBA')        , 'a-b-c-b-a');
+            equal(dasherize('ab ba')        , 'ab-ba');
+            equal(dasherize('ab BA')        , 'ab-b-a');
+        });
+    });
+    describe('#classify()', function() {
+        it('Converts string to classify case', function() {
+            var classify = string.classify;
+             equal(classify(null),                       '');
+             equal(classify(''),                         '');
+             equal(classify('some_class_name'),          'SomeClassName');
+             equal(classify('my wonderfull class_name'), 'MyWonderfullClassName');
+             equal(classify('my wonderfull.class.name'), 'MyWonderfullClassName');
+             equal(classify('myLittleCamel'),            'MyLittleCamel');
+             equal(classify('myLittleCamel.class.name'), 'MyLittleCamelClassName');
+             equal(classify(123),                        '123');
+        });
+    });
+
 });

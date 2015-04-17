@@ -15,10 +15,10 @@ exports.padRight = require('./lib/padRight');
 
 exports.addPrefix = require('./lib/addPrefix');
 exports.addSuffix = require('./lib/addSuffix');
+exports.repeat = require('./lib/repeat');
 exports.removeChars = require('./lib/removeChars');
 
 exports.lines = require('./lib/lines');
-exports.repeat = require('./lib/repeat');
 exports.truncate = require('./lib/truncate');
 exports.slugify = require('./lib/slugify');
 
@@ -26,6 +26,7 @@ exports.capitalize = require('./lib/capitalize');
 exports.decapitalize = require('./lib/decapitalize');
 exports.camelize = require('./lib/camelize');
 exports.dasherize = require('./lib/dasherize');
+exports.classify = require('./lib/classify');
 
 exports.escapeHTML = require('./lib/escapeHTML');
 exports.unescapeHTML = require('./lib/unescapeHTML');
