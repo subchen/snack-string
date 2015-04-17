@@ -167,27 +167,6 @@ describe('String', function() {
         });
     });
 
-    describe('#repeat()', function() {
-        it('Repeats the given string n times', function() {
-            var repeat = string.repeat;
-            equal(repeat(null, 2)      , '');
-            equal(repeat('a', 2)       , 'aa');
-            equal(repeat('ab', 2)      , 'abab');
-            equal(repeat('ab', -2)     , '');
-            equal(repeat('ab', 2, ',') , 'ab,ab');
-        });
-    });
-    describe('#removeChars()', function() {
-        it('Removes all occurrences of a character from within the source string', function() {
-            var removeChars = string.removeChars;
-            equal(removeChars(null, '')     , '');
-            equal(removeChars('abcba', '')  , 'abcba');
-            equal(removeChars('abcba', 'a') , 'bcb');
-            equal(removeChars('abcba', 'd') , 'abcba');
-            equal(removeChars('abcba', 'ab'), 'c');
-        });
-    });
-
     describe('#capitalize()', function() {
         it('Capitalizes the first character of string', function() {
             var capitalize = string.capitalize;
@@ -237,6 +216,68 @@ describe('String', function() {
              equal(classify('myLittleCamel'),            'MyLittleCamel');
              equal(classify('myLittleCamel.class.name'), 'MyLittleCamelClassName');
              equal(classify(123),                        '123');
+        });
+    });
+
+    describe('#addStart()', function() {
+        it('Adds a substring only if it is at the begining of a source string', function() {
+            var addStart = string.addStart;
+             equal(addStart(null, null),               '');
+             equal(addStart('', 'abc'),                'abc');
+             equal(addStart('domain.com', 'www.'),     'www.domain.com');
+             equal(addStart('www.domain.com', 'www.'), 'www.domain.com');
+             equal(addStart('abc', null),              'abc');
+        });
+    });
+    describe('#addEnd()', function() {
+        it('Adds a substring only if it is at the ending of a source string', function() {
+            var addEnd = string.addEnd;
+             equal(addEnd(null, null),               '');
+             equal(addEnd('', 'abc'),                'abc');
+             equal(addEnd('www.domain', '.com'),     'www.domain.com');
+             equal(addEnd('www.domain.com', '.com'), 'www.domain.com');
+             equal(addEnd('abc', null),              'abc');
+        });
+    });
+    describe('#removeStart()', function() {
+        it('Removes a substring only if it is at the begining of a source string', function() {
+            var removeStart = string.removeStart;
+             equal(removeStart(null, null),               '');
+             equal(removeStart('', 'abc'),                '');
+             equal(removeStart('www.domain.com', 'www.'), 'domain.com');
+             equal(removeStart('domain.com', 'www.'),     'domain.com');
+             equal(removeStart('abc', null),              'abc');
+        });
+    });
+    describe('#removeEnd()', function() {
+        it('Removes a substring only if it is at the ending of a source string', function() {
+            var removeEnd = string.removeEnd;
+             equal(removeEnd(null, null),               '');
+             equal(removeEnd('', 'abc'),                '');
+             equal(removeEnd('www.domain.com', '.com'), 'www.domain');
+             equal(removeEnd('www.domain', '.com'),     'www.domain');
+             equal(removeEnd('abc', null),              'abc');
+        });
+    });
+    describe('#removeChars()', function() {
+        it('Removes all occurrences of a character from within the source string', function() {
+            var removeChars = string.removeChars;
+            equal(removeChars(null, '')     , '');
+            equal(removeChars('abcba', '')  , 'abcba');
+            equal(removeChars('abcba', 'a') , 'bcb');
+            equal(removeChars('abcba', 'd') , 'abcba');
+            equal(removeChars('abcba', 'ab'), 'c');
+        });
+    });
+
+    describe('#repeat()', function() {
+        it('Repeats the given string n times', function() {
+            var repeat = string.repeat;
+            equal(repeat(null, 2)      , '');
+            equal(repeat('a', 2)       , 'aa');
+            equal(repeat('ab', 2)      , 'abab');
+            equal(repeat('ab', -2)     , '');
+            equal(repeat('ab', 2, ',') , 'ab,ab');
         });
     });
 

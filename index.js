@@ -13,14 +13,17 @@ exports.pad = require('./lib/pad');
 exports.padLeft = require('./lib/padLeft');
 exports.padRight = require('./lib/padRight');
 
-exports.addPrefix = require('./lib/addPrefix');
-exports.addSuffix = require('./lib/addSuffix');
-exports.repeat = require('./lib/repeat');
+exports.addStart = require('./lib/addStart');
+exports.addEnd = require('./lib/addEnd');
+exports.removeStart = require('./lib/removeStart');
+exports.removeEnd = require('./lib/removeEnd');
 exports.removeChars = require('./lib/removeChars');
 
+exports.chars = require('./lib/chars');
 exports.lines = require('./lib/lines');
 exports.truncate = require('./lib/truncate');
 exports.slugify = require('./lib/slugify');
+exports.repeat = require('./lib/repeat');
 
 exports.capitalize = require('./lib/capitalize');
 exports.decapitalize = require('./lib/decapitalize');
