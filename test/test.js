@@ -39,7 +39,6 @@ describe('String', function() {
             equal(isEmpty('aaa')     , false);
         });
     });
-
     describe('#isBlank()', function() {
         it('Checks if a String is whitespace, empty or null', function() {
             var isBlank = string.isBlank;
@@ -63,7 +62,6 @@ describe('String', function() {
             equal(startsWith('abc', '')      , true);
         });
     });
-
     describe('#endsWith()', function() {
         it('Check if a String ends with a specified suffix.', function() {
             var endsWith = string.endsWith;
@@ -90,7 +88,6 @@ describe('String', function() {
             equal(before('abc', null)  , 'abc');
         });
     });
-
     describe('#beforeLast()', function() {
         it('Gets the substring before the last occurrence of a separator', function() {
             var beforeLast = string.beforeLast;
@@ -104,7 +101,6 @@ describe('String', function() {
             equal(beforeLast('abc', null)  , 'abc');
         });
     });
-
     describe('#after()', function() {
         it('Gets the substring after the first occurrence of a separator', function() {
             var after = string.after;
@@ -118,7 +114,6 @@ describe('String', function() {
             equal(after('abc', '')    , 'abc');
         });
     });
-
     describe('#afterLast()', function() {
         it('Gets the substring after the last occurrence of a separator', function() {
             var afterLast = string.afterLast;
@@ -132,7 +127,6 @@ describe('String', function() {
             equal(afterLast('abc', '')    , '');
         });
     });
-
     describe('#between()', function() {
         it('Gets the substring between open and close tag', function() {
             var between = string.between;
@@ -170,6 +164,26 @@ describe('String', function() {
             equal(padRight('ab', 5)      , 'ab   ');
             equal(padRight('a', 5, '0')  , 'a0000');
             equal(padRight('abcde', 3)   , 'abcde');
+        });
+    });
+    
+    describe('#repeat()', function() {
+        it('Repeats the given string n times', function() {
+            var repeat = string.repeat;
+            equal(repeat(null, 2)      , '');
+            equal(repeat('a', 2)       , 'aa');
+            equal(repeat('ab', 2)      , 'abab');
+            equal(repeat('ab', -2)     , '');
+            equal(repeat('ab', 2, ',') , 'ab,ab');
+        });
+    });
+    describe('#removeChars()', function() {
+        it('Removes all occurrences of a character from within the source string', function() {
+            var removeChars = string.removeChars;
+            equal(removeChars(null, '')     , '');
+            equal(removeChars('abcba', '')  , 'abcba');
+            equal(removeChars('abcba', 'a') , 'bcb');
+            equal(removeChars('abcba', 'd') , 'abcba');
         });
     });
 });
