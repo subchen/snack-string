@@ -141,4 +141,35 @@ describe('String', function() {
             equal(between('abcba', 'a', 'c') , 'b');
         });
     });
+    
+    describe('#pad()', function() {
+        it('Pads string on the left and right sides if it is shorter than length', function() {
+            var pad = string.pad;
+            equal(pad(null, 5)      , '     ');
+            equal(pad('a', 5)       , '  a  ');
+            equal(pad('ab', 5)      , '  ab ');
+            equal(pad('a', 5, '0')  , '00a00');
+            equal(pad('abcde', 3)   , 'abcde');
+        });
+    });
+    describe('#padLeft()', function() {
+        it('Pads string on the left side if it is shorter than length', function() {
+            var padLeft = string.padLeft;
+            equal(padLeft(null, 5)      , '     ');
+            equal(padLeft('a', 5)       , '    a');
+            equal(padLeft('ab', 5)      , '   ab');
+            equal(padLeft('a', 5, '0')  , '0000a');
+            equal(padLeft('abcde', 3)   , 'abcde');
+        });
+    });
+    describe('#padRight()', function() {
+        it('Pads string on the right side if it is shorter than length', function() {
+            var padRight = string.padRight;
+            equal(padRight(null, 5)      , '     ');
+            equal(padRight('a', 5)       , 'a    ');
+            equal(padRight('ab', 5)      , 'ab   ');
+            equal(padRight('a', 5, '0')  , 'a0000');
+            equal(padRight('abcde', 3)   , 'abcde');
+        });
+    });
 });
