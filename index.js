@@ -19,11 +19,11 @@ exports.removeStart = require('./lib/removeStart');
 exports.removeEnd = require('./lib/removeEnd');
 exports.removeChars = require('./lib/removeChars');
 
-exports.chars = require('./lib/chars');
 exports.lines = require('./lib/lines');
 exports.truncate = require('./lib/truncate');
 exports.slugify = require('./lib/slugify');
 exports.repeat = require('./lib/repeat');
+exports.toCharArray = require('./lib/toCharArray');
 
 exports.capitalize = require('./lib/capitalize');
 exports.decapitalize = require('./lib/decapitalize');

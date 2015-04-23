@@ -4,6 +4,7 @@ var string = require('../');
 describe('String', function() {
 
     var equal = assert.strictEqual;
+    var deepEqual = assert.deepEqual;
 
     describe('#toString()', function() {
         it('Returns a string representation of the object', function() {
@@ -203,6 +204,7 @@ describe('String', function() {
             equal(dasherize('ABCBA')        , 'a-b-c-b-a');
             equal(dasherize('ab ba')        , 'ab-ba');
             equal(dasherize('ab BA')        , 'ab-b-a');
+            equal(dasherize(' a b ')        , 'a-b');
         });
     });
     describe('#classify()', function() {
@@ -280,5 +282,65 @@ describe('String', function() {
             equal(repeat('ab', 2, ',') , 'ab,ab');
         });
     });
+    describe('#toCharArray()', function() {
+        it('Converts this string to a new character array', function() {
+            var toCharArray = string.toCharArray;
+            deepEqual(toCharArray(null)   , []);
+            deepEqual(toCharArray('')     , []);
+            deepEqual(toCharArray('a')    , ['a']);
+            deepEqual(toCharArray('abc')  , ['a', 'b', 'c']);
+        });
+    });
+    describe('#lines()', function() {
+        it('Splits this string to line', function() {
+            var lines = string.lines;
+            deepEqual(lines(null)                , []);
+            deepEqual(lines('')                  , []);
+            deepEqual(lines('00')                , ['00']);
+            deepEqual(lines('00\n11\r22\r\n33')  , ['00', '11', '22', '33']);
+        });
+    });
+    describe('#truncate()', function() {
+        it('Truncates this string with fixed width', function() {
+            var truncate = string.truncate;
+            equal(truncate(null, 5)                , '');
+            equal(truncate('hello', 5)             , 'hello');
+            equal(truncate('hello world', 5)       , 'hello...');
+            equal(truncate('hello world', 5, '>>') , 'hello>>');
+        });
+    });
+    describe('#slugify()', function() {
+        it('Slugifies this string', function() {
+            var slugify = string.slugify;
+            equal(slugify(null), '');
+            equal(slugify(''), '');
+            equal(slugify('Jack & Jill like numbers 1,2,3 and 4 and silly characters ?%.$!/'), 'jack-jill-like-numbers-1-2-3-and-4-and-silly-characters');
+            equal(slugify('Un éléphant à l\'orée du bois'), 'un-elephant-a-l-oree-du-bois');
+            equal(slugify('I know latin characters: á í ó ú ç ã õ ñ ü ă ș ț'), 'i-know-latin-characters-a-i-o-u-c-a-o-n-u-a-s-t');
+            equal(slugify('I am a word too, even though I am but a single letter: i!'), 'i-am-a-word-too-even-though-i-am-but-a-single-letter-i');
+            equal(slugify('Some asian 天地人 characters'), 'some-asian-characters');
+        });
+    });
 
+    describe('#escapeHTML()', function() {
+        it('Escapes the characters in a String using HTML entities', function() {
+            var escapeHTML = string.escapeHTML;
+            equal(escapeHTML(null)      , '');
+            equal(escapeHTML('')        , '');
+            equal(escapeHTML('abc')     , 'abc');
+            equal(escapeHTML('<a & b>') , '&lt;a&nbsp;&amp;&nbsp;b&gt;');
+            equal(escapeHTML('0"1\'2')  , '0&quot;1&apos;2');
+        });
+    });
+    describe('#unescapeHTML()', function() {
+        it('Unescapes a string containing entity escapes to a string', function() {
+            var unescapeHTML = string.unescapeHTML;
+            equal(unescapeHTML(null)                          , '');
+            equal(unescapeHTML('')                            , '');
+            equal(unescapeHTML('abc')                         , 'abc');
+            equal(unescapeHTML('&lt;a&nbsp;&amp;&nbsp;b&gt;') , '<a & b>');
+            equal(unescapeHTML('0&quot;1&apos;2')             , '0"1\'2');
+            equal(unescapeHTML('&#34;')                        , '"');
+        });
+    });
 });
