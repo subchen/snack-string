@@ -1,38 +1,45 @@
 module.exports = function(grunt) {
 
-    // Project configuration.
+    var jsfiles = [
+        'Gruntfile.js',
+        'index.js',
+        'lib/**/*.js',
+        'test/**/*.js'
+    ];
+
     grunt.initConfig({
-        'pkg': grunt.file.readJSON('package.json'),
-        'jsbeautifier': {
-            files: ['index.js', 'lib/**/*.js'],
+        pkg: grunt.file.readJSON('package.json'),
+        jsbeautifier: {
             options: {
-                js: {
-                    braceStyle: 'collapse',
-                    breakChainedMethods: false,
-                    e4x: false,
-                    evalCode: false,
-                    indentChar: ' ',
-                    indentLevel: 0,
-                    indentSize: 4,
-                    indentWithTabs: false,
-                    jslintHappy: false,
-                    keepArrayIndentation: false,
-                    keepFunctionIndentation: false,
-                    maxPreserveNewlines: 10,
-                    preserveNewlines: true,
-                    spaceBeforeConditional: true,
-                    spaceInParen: false,
-                    unescapeStrings: false,
-                    wrapLineLength: 0,
-                    endWithNewline: true
-                }
-            }
+                config: '.jsbeautifyrc'
+            },
+            files: jsfiles
+        },
+        jshint: {
+            options: {
+                jshintrc: '.jshintrc'
+            },
+            files: jsfiles
+        },
+        jscs: {
+            options: {
+                config: '.jscsrc',
+            },
+            files: jsfiles
+        },
+        mochaTest: {
+            test: {
+                src: ['test/**/*.js'],
+            },
         }
     });
 
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-jscs');
     grunt.loadNpmTasks('grunt-jsbeautifier');
+    grunt.loadNpmTasks('grunt-mocha-test');
 
-    // Default task(s).
-    grunt.registerTask('default', ['jsbeautifier']);
+    grunt.registerTask('verify', ['jsbeautifier', 'jshint', 'jscs']);
+    grunt.registerTask('test', ['mochaTest']);
 
 };

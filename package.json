@@ -22,13 +22,14 @@
     "string",
     "util"
   ],
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "mocha": "^2.2.4",
     "grunt-cli": "^0.1.13",
     "grunt-contrib-jshint": "^0.11.1",
-    "grunt-jsbeautifier": "^0.2.10"
+    "grunt-jsbeautifier": "^0.2.10",
+    "grunt-jscs": "^1.6.0",
+    "grunt-mocha-test": "^0.12.7",
+    "mocha": "^2.2.4"
   },
   "engines": {
     "node": ">= 0.10.0"

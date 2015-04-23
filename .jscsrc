@@ -41,7 +41,6 @@
   "requireSpaceBeforeBinaryOperators": [
     "=", "+=", "-=", "*=", "/=", "%=", "<<=", ">>=", ">>>=",
     "&=", "|=", "^=", "+=",
-
     "+", "-", "*", "/", "%", "<<", ">>", ">>>", "&",
     "|", "^", "&&", "||", "===", "==", ">=",
     "<=", "<", ">", "!=", "!=="
@@ -55,18 +54,11 @@
   "requireSpacesInFunctionDeclaration": {
     "beforeOpeningCurlyBrace": true
   },
-  "disallowSpacesInFunctionDeclaration": {
-    "beforeOpeningRoundBrace": true
-  },
   "requireSpacesInAnonymousFunctionExpression": {
-    "beforeOpeningCurlyBrace": true,
-    "beforeOpeningRoundBrace": true
+    "beforeOpeningCurlyBrace": true
   },
   "requireSpacesInNamedFunctionExpression": {
     "beforeOpeningCurlyBrace": true
-  },
-  "disallowSpacesInNamedFunctionExpression": {
-    "beforeOpeningRoundBrace": true
   },
 
   "disallowYodaConditions": true,
