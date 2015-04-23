@@ -39,6 +39,6 @@
     "lib": "./lib"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "grunt test"
   }
 }
