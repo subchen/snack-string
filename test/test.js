@@ -51,8 +51,20 @@ describe('String', function() {
         });
     });
 
+    describe('#contains()', function() {
+        it('Determines whether one string may be found within another string', function() {
+            var contains = string.contains;
+            equal(contains(null, '*')      , false);
+            equal(contains('', '*')        , false);
+            equal(contains('', '')         , true);
+            equal(contains('abc', 'a')     , true);
+            equal(contains('abc', 'c')     , true);
+            equal(contains('abc', 'x')     , false);
+            equal(contains('abc', '')      , true);
+        });
+    });
     describe('#startsWith()', function() {
-        it('Check if a String starts with a specified prefix.', function() {
+        it('Checks if a String starts with a specified prefix', function() {
             var startsWith = string.startsWith;
             equal(startsWith(undefined, '*') , false);
             equal(startsWith(null, '*')      , false);
@@ -64,7 +76,7 @@ describe('String', function() {
         });
     });
     describe('#endsWith()', function() {
-        it('Check if a String ends with a specified suffix.', function() {
+        it('Checks if a String ends with a specified suffix', function() {
             var endsWith = string.endsWith;
             equal(endsWith(undefined, '*') , false);
             equal(endsWith(null, '*')      , false);
@@ -272,16 +284,6 @@ describe('String', function() {
         });
     });
 
-    describe('#repeat()', function() {
-        it('Repeats the given string n times', function() {
-            var repeat = string.repeat;
-            equal(repeat(null, 2)      , '');
-            equal(repeat('a', 2)       , 'aa');
-            equal(repeat('ab', 2)      , 'abab');
-            equal(repeat('ab', -2)     , '');
-            equal(repeat('ab', 2, ',') , 'ab,ab');
-        });
-    });
     describe('#toCharArray()', function() {
         it('Converts this string to a new character array', function() {
             var toCharArray = string.toCharArray;
@@ -319,6 +321,27 @@ describe('String', function() {
             equal(slugify('I know latin characters: á í ó ú ç ã õ ñ ü ă ș ț'), 'i-know-latin-characters-a-i-o-u-c-a-o-n-u-a-s-t');
             equal(slugify('I am a word too, even though I am but a single letter: i!'), 'i-am-a-word-too-even-though-i-am-but-a-single-letter-i');
             equal(slugify('Some asian 天地人 characters'), 'some-asian-characters');
+        });
+    });
+    describe('#repeat()', function() {
+        it('Repeats the given string n times', function() {
+            var repeat = string.repeat;
+            equal(repeat(null, 2)      , '');
+            equal(repeat('a', 2)       , 'aa');
+            equal(repeat('ab', 2)      , 'abab');
+            equal(repeat('ab', -2)     , '');
+            equal(repeat('ab', 2, ',') , 'ab,ab');
+        });
+    });
+
+    describe('#interpolate()', function() {
+        it('Interpolates string', function() {
+            var interpolate = string.interpolate;
+            equal(interpolate(null, null)                                   , '');
+            equal(interpolate('a', null)                                    , 'a');
+            equal(interpolate('a={{a}}', null)                              , 'a=');
+            equal(interpolate('a={{a}}', {a:123})                           , 'a=123');
+            equal(interpolate('<% a %>', {a:123}, interpolate.SCRIPT_SYNTAX), '123');
         });
     });
 

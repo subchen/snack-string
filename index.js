@@ -1,5 +1,6 @@
 exports.isEmpty = require('./lib/isEmpty');
 exports.isBlank = require('./lib/isBlank');
+exports.contains = require('./lib/contains');
 exports.startsWith = require('./lib/startsWith');
 exports.endsWith = require('./lib/endsWith');
 
@@ -19,11 +20,12 @@ exports.removeStart = require('./lib/removeStart');
 exports.removeEnd = require('./lib/removeEnd');
 exports.removeChars = require('./lib/removeChars');
 
+exports.toCharArray = require('./lib/toCharArray');
 exports.lines = require('./lib/lines');
 exports.truncate = require('./lib/truncate');
 exports.slugify = require('./lib/slugify');
 exports.repeat = require('./lib/repeat');
-exports.toCharArray = require('./lib/toCharArray');
+exports.interpolate = require('./lib/interpolate');
 
 exports.capitalize = require('./lib/capitalize');
 exports.decapitalize = require('./lib/decapitalize');
