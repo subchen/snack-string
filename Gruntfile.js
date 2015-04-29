@@ -45,7 +45,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-mocha-istanbul');
 
-    grunt.registerTask('verify', ['jsbeautifier', 'jshint', 'jscs']);
+    grunt.registerTask('sa', ['jsbeautifier', 'jshint', 'jscs']);
     grunt.registerTask('test', ['mochaTest']);
     grunt.registerTask('coverage', ['mocha_istanbul:coverage']);
 

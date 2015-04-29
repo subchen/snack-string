@@ -1,6 +1,6 @@
 {
   "name": "snack-string",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Generic string functional library for javascript/node.js",
   "author": {
     "name": "Guoqiang Chen",
@@ -21,7 +21,8 @@
     "string",
     "util"
   ],
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {
     "grunt-cli": "^0.1.13",
     "grunt-contrib-jshint": "^0.11.1",
@@ -29,8 +30,10 @@
     "grunt-jscs": "^1.6.0",
     "grunt-mocha-istanbul": "^2.4.0",
     "grunt-mocha-test": "^0.12.7",
+    "mocha": "^2.2.4",
+    "mocha-lcov-reporter": "0.0.2",
     "istanbul": "^0.3.13",
-    "mocha": "^2.2.4"
+    "coveralls": "^2.11.2"
   },
   "engines": {
     "node": ">= 0.10.0"
@@ -40,6 +43,9 @@
     "lib": "./lib"
   },
   "scripts": {
-    "test": "grunt test"
+    "test": "./node_modules/.bin/mocha",
+    "test-sa": "grunt sa",
+    "test-cc": "./node_modules/.bin/istanbul -- cover ./node_modules/.bin/_mocha -R mocha-lcov-reporter",
+    "test-cc-post": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
   }
 }
