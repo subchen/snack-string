@@ -1,7 +1,12 @@
-docs
-test
-.travis.yml
+docs/
+test/
+coverage/
+
+*.log
+
+Gruntfile.js
 .gitignore
 .jsbeautifyrc
 .jscsrc
 .jshintrc
+.travis.yml
