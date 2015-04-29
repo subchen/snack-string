@@ -4,5 +4,6 @@ node_js:
     - "0.12"
 script:
     - "npm run test-sa"
-    - "npm run test-cc && npm run test-cc-post"
-
+    - "npm run test-cc"
+after_script: 
+    - "npm run test-cc-post"
