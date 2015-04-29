@@ -23,14 +23,19 @@ module.exports = function(grunt) {
         },
         jscs: {
             options: {
-                config: '.jscsrc',
+                config: '.jscsrc'
             },
             files: jsfiles
         },
         mochaTest: {
             test: {
-                src: ['test/**/*.js'],
-            },
+                src: ['test/**/*.js']
+            }
+        },
+        'mocha_istanbul': {
+            coverage: {
+                src: ['test/**/*.js']
+            }
         }
     });
 
@@ -38,8 +43,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jscs');
     grunt.loadNpmTasks('grunt-jsbeautifier');
     grunt.loadNpmTasks('grunt-mocha-test');
+    grunt.loadNpmTasks('grunt-mocha-istanbul');
 
     grunt.registerTask('verify', ['jsbeautifier', 'jshint', 'jscs']);
     grunt.registerTask('test', ['mochaTest']);
+    grunt.registerTask('coverage', ['mocha_istanbul:coverage']);
 
 };
