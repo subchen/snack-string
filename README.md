@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/subchen/snack-string.svg?branch=master)](https://travis-ci.org/subchen/snack-string)
+[![Code Coverage](https://img.shields.io/coveralls/subchen/snack-string/master.svg)](https://coveralls.io/r/subchen/snack-string?branch=master)
 [![NPM Repo](https://img.shields.io/npm/v/snack-string.svg)](https://www.npmjs.com/package/snack-string)
 [![License](http://img.shields.io/badge/License-Apache_2-red.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
 
