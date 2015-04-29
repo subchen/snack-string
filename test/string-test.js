@@ -347,9 +347,15 @@ describe('String', function() {
             equal(interpolate('a={{a}}', {
                 a: 123
             }), 'a=123');
+            equal(interpolate('{a}', {
+                a: 123
+            }, interpolate.SIMPLE_SYNTAX), '123');
             equal(interpolate('<% a %>', {
                 a: 123
             }, interpolate.SCRIPT_SYNTAX), '123');
+            equal(interpolate('/user/:id/addresses', {
+                id: 123
+            }, interpolate.NAMED_PARAM_SYNTAX), '/user/123/addresses');
         });
     });
 
