@@ -358,6 +358,28 @@ describe('String', function() {
             }, interpolate.NAMED_PARAM_SYNTAX), '/user/123/addresses');
         });
     });
+    describe('#template()', function() {
+        it('Replace string using template', function() {
+            var template = string.template;
+            equal(template(null, null), '');
+            equal(template('a', null), 'a');
+            equal(template('a={{1+2*3}}', null), 'a=7');
+            equal(template('a={{a.length}}', {
+                a: '000'
+            }), 'a=3');
+            equal(template('<% a + 1 %>', {
+                a: 123
+            }, template.syntax('<%', '%>')), '124');
+
+            var compiled = template.compile('a={{a+1}}');
+            equal(compiled({
+                a: 1
+            }), 'a=2');
+            equal(compiled({
+                a: 1
+            }), 'a=2');
+        });
+    });
 
     describe('#escapeHTML()', function() {
         it('Escapes the characters in a String using HTML entities', function() {

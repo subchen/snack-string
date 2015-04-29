@@ -53,6 +53,7 @@ console.log(ss.startsWith('abc', 'a'));
 * startsWith
 * toCharArray
 * toString
+* template
 * truncate
 * unescapeHTML
 

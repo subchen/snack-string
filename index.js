@@ -26,6 +26,7 @@ exports.truncate = require('./lib/truncate');
 exports.slugify = require('./lib/slugify');
 exports.repeat = require('./lib/repeat');
 exports.interpolate = require('./lib/interpolate');
+exports.template = require('./lib/template');
 
 exports.capitalize = require('./lib/capitalize');
 exports.decapitalize = require('./lib/decapitalize');
