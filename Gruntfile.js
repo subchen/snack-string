@@ -9,6 +9,11 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+        trimtrailingspaces: {
+            main: {
+                src: jsfiles
+            }
+        },
         jsbeautifier: {
             options: {
                 config: '.jsbeautifyrc'
@@ -26,27 +31,14 @@ module.exports = function(grunt) {
                 config: '.jscsrc'
             },
             files: jsfiles
-        },
-        mochaTest: {
-            test: {
-                src: ['test/**/*.js']
-            }
-        },
-        'mocha_istanbul': {
-            coverage: {
-                src: ['test/**/*.js']
-            }
         }
     });
 
+    grunt.loadNpmTasks('grunt-trimtrailingspaces');
+    grunt.loadNpmTasks('grunt-jsbeautifier');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-jscs');
-    grunt.loadNpmTasks('grunt-jsbeautifier');
-    grunt.loadNpmTasks('grunt-mocha-test');
-    grunt.loadNpmTasks('grunt-mocha-istanbul');
 
-    grunt.registerTask('sa', ['jsbeautifier', 'jshint', 'jscs']);
-    grunt.registerTask('test', ['mochaTest']);
-    grunt.registerTask('coverage', ['mocha_istanbul:coverage']);
+    grunt.registerTask('sa', ['trimtrailingspaces', 'jsbeautifier', 'jshint', 'jscs']);
 
 };
