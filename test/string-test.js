@@ -383,6 +383,41 @@ describe('String', function() {
         });
     });
 
+    describe('#randomString()', function() {
+        it('Creates a random string based supplied source of randomness.', function() {
+            var randomString = string.randomString;
+            equal(randomString(1, 'a'), 'a');
+            equal(randomString(10, 'ab').length, 10);
+
+            var s = randomString(30, '0123456789');
+            equal(s.length, 30);
+            for (var i = 0; i < s.length; i++) {
+                assert.ok(s.charAt(i) >= '0' && s.charAt(i) <= '9')
+            }
+        });
+    });
+    describe('#randomNumber()', function() {
+        it('Creates a random string whose length is the number of characters specified.', function() {
+            var randomNumber = string.randomNumber;
+            equal(randomNumber(10).length, 10);
+            equal(randomNumber(30).length, 30);
+        });
+    });
+    describe('#randomHex()', function() {
+        it('Creates a random string whose length is the hex characters specified.', function() {
+            var randomHex = string.randomHex;
+            equal(randomHex(10).length, 10);
+            equal(randomHex(30).length, 30);
+        });
+    });
+    describe('#randomBase62()', function() {
+        it('Creates a random string whose length is the base62 characters specified.', function() {
+            var randomBase62 = string.randomBase62;
+            equal(randomBase62(10).length, 10);
+            equal(randomBase62(30).length, 30);
+        });
+    });
+
     describe('#escapeHTML()', function() {
         it('Escapes the characters in a String using HTML entities', function() {
             var escapeHTML = string.escapeHTML;

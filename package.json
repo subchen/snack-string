@@ -1,6 +1,6 @@
 {
   "name": "snack-string",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Generic string functional library for javascript/node.js",
   "author": {
     "name": "Guoqiang Chen",
@@ -42,9 +42,9 @@
     "lib": "./lib"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha",
-    "test-sa": "./node_modules/.bin/grunt sa",
-    "test-cc": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter mocha-lcov-reporter",
-    "test-cc-post": "cat ./coverage/lcov.info | ./node_modules/.bin/coveralls"
+    "test": "mocha",
+    "test-sa": "grunt sa",
+    "test-cc": "istanbul cover _mocha -- --reporter mocha-lcov-reporter",
+    "test-cc-post": "cat ./coverage/lcov.info | coveralls"
   }
 }

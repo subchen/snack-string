@@ -34,6 +34,11 @@ exports.camelize = require('./lib/camelize');
 exports.dasherize = require('./lib/dasherize');
 exports.classify = require('./lib/classify');
 
+exports.randomString = require('./lib/randomString');
+exports.randomNumber = require('./lib/randomNumber');
+exports.randomHex = require('./lib/randomHex');
+exports.randomBase62 = require('./lib/randomBase62');
+
 exports.escapeHTML = require('./lib/escapeHTML');
 exports.unescapeHTML = require('./lib/unescapeHTML');
 
