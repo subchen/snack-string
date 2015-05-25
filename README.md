@@ -7,7 +7,7 @@
 that can be used in the browser or on node.js
 
 
-# Install by npm
+# Install
 
 ```shell
 npm install snack-string
@@ -46,6 +46,10 @@ console.log(ss.startsWith('abc', 'a'));
 * pad
 * padLeft
 * padRight
+* randomString
+* randomNumber
+* randomHex
+* randomBase62
 * removeChars
 * removeEnd
 * removeStart
