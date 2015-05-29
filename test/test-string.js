@@ -340,6 +340,19 @@ describe('String', function() {
         });
     });
 
+    describe('#format()', function() {
+        it('Formats string', function() {
+            var format = string.format;
+            equal(format(null), '');
+            equal(format('123'), '123');
+            equal(format('%%'), '%');
+            equal(format('a=%d', 123), 'a=123');
+            equal(format('a=%s', 'abc'), 'a=abc');
+            equal(format('a=%s,b=%s', 123, [1, 2]), 'a=123,b=1,2');
+            equal(format('a=%j', [1, 2]), 'a=[1,2]');
+            equal(format('123', 'aaa'), '123 aaa');
+        });
+    });
     describe('#interpolate()', function() {
         it('Interpolates string', function() {
             var interpolate = string.interpolate;

@@ -3,11 +3,12 @@
 [![NPM Repo](https://img.shields.io/npm/v/snack-string.svg)](https://www.npmjs.com/package/snack-string)
 [![License](http://img.shields.io/badge/License-Apache_2-red.svg?style=flat)](http://www.apache.org/licenses/LICENSE-2.0)
 
-**SNACK-STRING** is javscript string manipulation extensions
-that can be used in the browser or on node.js
+# snack-string
+
+Generic string functional library for javascript/node.js
 
 
-# Install
+# Installation
 
 ```shell
 npm install snack-string
@@ -16,9 +17,9 @@ npm install snack-string
 # Example
 
 ```js
-var ss = require('snack-string');
+var string = require('snack-string');
 
-console.log(ss.startsWith('abc', 'a'));
+console.log(string.startsWith('abc', 'a'));
 ```
 
 # APIs
@@ -38,6 +39,7 @@ console.log(ss.startsWith('abc', 'a'));
 * decapitalize
 * endsWith
 * escapeHTML
+* format
 * hashCode
 * interpolate
 * isBlank

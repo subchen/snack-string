@@ -25,6 +25,8 @@ exports.lines = require('./lib/lines');
 exports.truncate = require('./lib/truncate');
 exports.slugify = require('./lib/slugify');
 exports.repeat = require('./lib/repeat');
+
+exports.format = require('./lib/format');
 exports.interpolate = require('./lib/interpolate');
 exports.template = require('./lib/template');
 
